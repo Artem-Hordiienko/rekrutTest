@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;1,500&family=Montserrat:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-green text-cream;
+  }
+}
+
+@layer components {
+  /* pill buttons, shared geometry from design tokens: radius 200px, py-3 */
+  .btn {
+    @apply inline-flex items-center justify-center gap-[10px] rounded-pill px-6 py-3 text-body font-sans transition-all duration-300 ease-out;
+  }
+  .btn-fill {
+    @apply btn bg-green text-cream hover:bg-ink hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green/20 active:translate-y-0;
+  }
+  .btn-outline {
+    @apply btn border border-green text-green hover:bg-green hover:text-cream hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-outline-light {
+    @apply btn border border-cream/70 text-cream hover:bg-cream hover:text-green hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .eyebrow {
+    @apply text-eyebrow font-sans uppercase tracking-[0.08em] text-green;
+  }
+
+  .card-link {
+    @apply inline-flex items-center gap-[10px] text-body-sm text-ink underline decoration-1 underline-offset-4 transition-colors duration-200 group-hover:text-green;
+  }
+  .card-link svg {
+    @apply transition-transform duration-300 ease-out group-hover:translate-x-1;
+  }
+
+  /* gated by .js on <html> (set synchronously in <head>) so content stays
+     visible by default if JS fails to load — only hide-then-reveal when we
+     know the reveal script is actually going to run */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .nav-link {
+    @apply relative text-body-sm text-ink transition-colors duration-200 hover:text-green;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 h-px w-0 bg-green transition-all duration-300 ease-out;
+  }
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}

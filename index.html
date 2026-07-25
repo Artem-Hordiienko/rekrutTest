@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GiardDesign — Nowoczesna aranżacja Twojego ogrodu</title>
+  <meta name="description" content="Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji ogrodów.">
+  <link rel="stylesheet" href="dist/style.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="bg-cream text-ink">
+
+  <!-- ============ NAV ============ -->
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 h-[72px] bg-white/95 backdrop-blur-sm shadow-[0_1px_0_rgba(17,17,17,0.06)]">
+    <div class="flex h-full items-center justify-between px-6 md:px-[89px] lg:px-[200px]">
+      <a href="#top" class="font-display text-lg font-medium tracking-tight"><strong class="font-bold">giard</strong><span class="font-normal">design</span></a>
+
+      <div class="flex items-center gap-10">
+        <!-- desktop nav -->
+        <nav class="hidden items-center gap-10 lg:flex" aria-label="Główna nawigacja">
+          <div class="group relative">
+            <button id="oferta-toggle" class="nav-link flex items-center gap-1.5" aria-expanded="false" aria-controls="oferta-menu">
+              Oferta
+              <svg id="oferta-chevron" class="h-3.5 w-3.5 transition-transform duration-300" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div id="oferta-menu"
+                 class="invisible absolute left-1/2 top-[calc(100%+18px)] w-[280px] -translate-x-1/2 translate-y-2 rounded-2xl border border-black/5 bg-white p-2 opacity-0 shadow-2xl shadow-black/10 transition-all duration-250 ease-out"
+                 role="menu">
+              <a href="#oferta" role="menuitem" class="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-cream">
+                <img src="img/pen.jpg" alt="" aria-hidden="true" class="mt-0.5 h-6 w-6 shrink-0 rounded-lg object-cover">
+                <span><span class="block text-body-sm font-medium">Projekty</span><span class="block text-body-sm text-ink/60">Ogrody szyte na miarę przestrzeni</span></span>
+              </a>
+              <a href="#oferta" role="menuitem" class="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-cream">
+                <img src="img/eye.jpg" alt="" aria-hidden="true" class="mt-0.5 h-6 w-6 shrink-0 rounded-lg object-cover">
+                <span><span class="block text-body-sm font-medium">Wizualizacje</span><span class="block text-body-sm text-ink/60">Spacer 3D po projekcie koncepcyjnym</span></span>
+              </a>
+              <a href="#realizacje" role="menuitem" class="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-cream">
+                <img src="img/stars.jpg" alt="" aria-hidden="true" class="mt-0.5 h-6 w-6 shrink-0 rounded-lg object-cover">
+                <span><span class="block text-body-sm font-medium">Realizacje</span><span class="block text-body-sm text-ink/60">Zobacz ukończone wdrożenia</span></span>
+              </a>
+            </div>
+          </div>
+          <a href="#o-firmie" class="nav-link">O firmie</a>
+          <a href="#realizacje" class="nav-link">Realizacje</a>
+          <a href="#kontakt" class="nav-link">Kontakt</a>
+        </nav>
+
+        <div class="flex items-center gap-4">
+          <!-- search: expands on click -->
+          <div class="hidden items-center md:flex">
+            <div id="search-wrap" class="flex items-center overflow-hidden rounded-pill border border-transparent transition-all duration-350 ease-out" style="width:40px;">
+              <button id="search-toggle" aria-label="Szukaj" aria-expanded="false" class="grid h-10 w-10 shrink-0 place-items-center rounded-full transition-colors hover:bg-cream">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </button>
+              <input id="search-input" type="text" placeholder="Czego szukasz?" class="w-0 border-none bg-transparent text-body-sm outline-none placeholder:text-ink/40" />
+            </div>
+          </div>
+          <!-- mobile hamburger -->
+          <button id="menu-toggle" class="grid h-10 w-10 place-items-center lg:hidden" aria-label="Otwórz menu" aria-expanded="false">
+            <svg id="menu-icon-open" class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg id="menu-icon-close" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- mobile menu panel -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t border-black/5 bg-white px-6 pb-6 pt-2">
+      <nav class="flex flex-col gap-1" aria-label="Menu mobilne">
+        <button id="oferta-toggle-m" class="flex items-center justify-between py-3 text-left text-body" aria-expanded="false" aria-controls="oferta-menu-m">
+          Oferta
+          <svg id="oferta-chevron-m" class="h-3.5 w-3.5 transition-transform duration-300" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div id="oferta-menu-m" class="hidden flex-col gap-1 pl-4 pb-2">
+          <a href="#oferta" class="py-2 text-body-sm text-ink/70">Projekty</a>
+          <a href="#oferta" class="py-2 text-body-sm text-ink/70">Wizualizacje</a>
+          <a href="#realizacje" class="py-2 text-body-sm text-ink/70">Realizacje</a>
+        </div>
+        <a href="#o-firmie" class="border-t border-black/5 py-3 text-body">O firmie</a>
+        <a href="#realizacje" class="border-t border-black/5 py-3 text-body">Realizacje</a>
+        <a href="#kontakt" class="border-t border-black/5 py-3 text-body">Kontakt</a>
+        <div class="mt-3 flex items-center gap-2 rounded-pill border border-black/10 px-4 py-2.5">
+          <svg class="h-4 w-4 shrink-0 text-ink/50" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <input type="text" placeholder="Czego szukasz?" class="w-full border-none bg-transparent text-body-sm outline-none placeholder:text-ink/40" />
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="pt-[72px]">
+
+    <!-- ============ HERO ============ -->
+    <section class="relative overflow-hidden bg-beige">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="relative z-10 flex flex-col justify-center px-6 py-16 md:py-24 md:pl-[89px] md:pr-10 lg:py-0 lg:pr-16" style="min-height:min(737px,calc(100vh - 72px));">
+          <p class="animate-fade-up eyebrow mb-4">GiardDesign</p>
+          <h1 class="animate-fade-up font-display text-4xl font-medium leading-[1.15] tracking-tight md:text-h1" style="animation-delay:80ms">
+            Nowoczesna aranżacja<br>Twojego ogrodu
+          </h1>
+          <p class="animate-fade-up mt-6 max-w-[489px] text-body text-ink/80" style="animation-delay:160ms">
+            Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka realizacji. Oferujemy kompleksowy zakres usług z indywidualnym podejściem do każdego projektu.
+          </p>
+          <div class="animate-fade-up mt-9 flex flex-wrap items-center gap-4" style="animation-delay:240ms">
+            <a href="#kontakt" class="btn-fill">Skontaktuj się z nami</a>
+            <a href="#realizacje" class="btn-outline">
+              Zobacz nasze realizacje
+              <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3.5 9 8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- hero carousel: image cycles between the featured shots we have -->
+        <div class="relative h-[320px] sm:h-[440px] lg:h-[737px]" data-carousel data-autoplay="6000">
+          <div class="absolute inset-0 -scale-x-100">
+            <img data-slide src="img/Photo_688x720@2x.webp" alt="Nowoczesny ogród — żywopłot w geometrycznym układzie" class="h-full w-full object-cover transition-opacity duration-700" loading="eager">
+            <img data-slide src="img/Photo_452x601.webp" alt="Basen otoczony zielenią" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700">
+            <img data-slide src="img/Photo_451x603.webp" alt="Tunel pnączy różanych" class="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-700">
+            <div class="absolute inset-0 bg-white/10"></div>
+          </div>
+          <div class="absolute bottom-0 right-0 flex items-center gap-8 bg-cream px-6 py-6 sm:px-8">
+            <button data-prev aria-label="Poprzednie zdjęcie" class="grid h-12 w-12 place-items-center rounded-full border border-ink/15 transition-colors hover:border-green hover:bg-green hover:text-cream">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button data-next aria-label="Następne zdjęcie" class="grid h-12 w-12 place-items-center rounded-full border border-ink/15 transition-colors hover:border-green hover:bg-green hover:text-cream">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ OFERTA ============ -->
+    <section id="oferta" class="bg-cream py-24 md:py-[120px]">
+      <div class="mx-auto max-w-narrow px-6 md:px-0">
+        <p class="reveal eyebrow mb-5">Oferta</p>
+        <h2 class="reveal font-display text-3xl font-medium tracking-tight md:text-h2">
+          Działamy <em class="font-sans italic font-medium">kompleksowo</em>
+        </h2>
+        <p class="reveal mt-8 max-w-[720px] text-body text-ink/80">
+          Oferujemy kompletną obsługę inwestycji terenów zielonych. Projektujemy nowoczesne ogrody przydomowe oraz rezydencjonalne. Stworzymy dla Ciebie projekt, zwizualizujemy go i wcielimy w życie, a na każdym etapie posłużymy radą i wieloletnim doświadczeniem.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-14 grid max-w-content grid-cols-1 gap-6 px-6 sm:grid-cols-2 md:px-0 lg:grid-cols-3 lg:gap-gutter">
+        <a href="#kontakt" class="reveal group flex flex-col rounded-card bg-white px-10 py-12 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10">
+          <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-full transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" aria-hidden="true">
+            <img src="img/pen.jpg" alt="" class="h-full w-full object-cover">
+          </span>
+          <h3 class="mt-6 font-display text-h4 font-medium tracking-tight">Projekty</h3>
+          <p class="mt-3 text-body-sm text-ink/70">Zaprojektujemy Twój ogród w nowoczesnym stylu i z najlepszym wykorzystaniem istniejącej przestrzeni.</p>
+          <span class="card-link mt-8">Dowiedz się więcej
+            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <a href="#kontakt" class="reveal group flex flex-col rounded-card bg-white px-10 py-12 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10" style="transition-delay:80ms">
+          <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-full transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" aria-hidden="true">
+            <img src="img/eye.jpg" alt="" class="h-full w-full object-cover">
+          </span>
+          <h3 class="mt-6 font-display text-h4 font-medium tracking-tight">Wizualizacje</h3>
+          <p class="mt-3 text-body-sm text-ink/70">Przedstawimy Ci projekty koncepcyjne w postaci wirtualnego spaceru animowanego w technologii 3D.</p>
+          <span class="card-link mt-8">Dowiedz się więcej
+            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+        <a href="#realizacje" class="reveal group flex flex-col rounded-card bg-white px-10 py-12 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10 sm:col-span-2 lg:col-span-1" style="transition-delay:160ms">
+          <span class="grid h-11 w-11 place-items-center overflow-hidden rounded-full transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110" aria-hidden="true">
+            <img src="img/stars.jpg" alt="" class="h-full w-full object-cover">
+          </span>
+          <h3 class="mt-6 font-display text-h4 font-medium tracking-tight">Realizacje</h3>
+          <p class="mt-3 text-body-sm text-ink/70">Zrealizujemy Twoje marzenie przy użyciu najnowszych rozwiązań i zaawansowanych technologii.</p>
+          <span class="card-link mt-8">Zobacz nasze realizacje
+            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ O FIRMIE ============ -->
+    <section id="o-firmie" class="bg-cream">
+      <div class="grid grid-cols-1 lg:grid-cols-2">
+        <div class="reveal h-[360px] sm:h-[480px] lg:h-[720px]">
+          <img src="img/Photo_452x338.webp" alt="Ogród w stylu japońskim przy nowoczesnym domu" class="h-full w-full -scale-x-100 object-cover">
+        </div>
+        <div class="reveal flex flex-col justify-center bg-green px-6 py-16 text-cream sm:px-12 md:py-24 lg:pl-24 lg:pr-16">
+          <p class="eyebrow !text-cream/70 mb-5">O firmie</p>
+          <h2 class="font-display text-3xl font-medium tracking-tight md:text-h2">
+            Tworzymy<br><em class="font-sans italic font-medium">z pasją</em>
+          </h2>
+          <p class="mt-7 max-w-[480px] text-body text-cream/85">
+            Każdy projekt to nowe wyzwanie. Dlatego nasz zespół tworzą wykwalifikowani projektanci oraz architekci, których zadaniem jest rozpoznanie i realizacja potrzeb każdego Klienta. Nasza specjalizacja to przestrzenie nowoczesne, które charakteryzuje minimalizm, geometria i elegancka prostota. Tworzymy ogrody małoobsługowe, dostosowane do współczesnego trybu życia.
+          </p>
+          <a href="#kontakt" class="btn-outline-light mt-9 w-fit">
+            Poznaj nas bliżej
+            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REALIZACJE ============ -->
+    <section id="realizacje" class="relative bg-beige pb-28 pt-24 md:pt-[120px]">
+      <div class="mx-auto max-w-narrow px-6 md:px-0">
+        <p class="reveal eyebrow mb-5">Realizacje</p>
+        <h2 class="reveal font-display text-3xl font-medium tracking-tight md:text-h2">
+          Nasze <em class="font-sans italic font-medium">projekty</em>
+        </h2>
+      </div>
+
+      <div id="gallery" class="relative mt-16 grid grid-cols-1 gap-[18px] px-6 sm:grid-cols-2 sm:px-[42px] lg:grid-cols-3 lg:gap-[42px] lg:px-0">
+        <!-- column 1 -->
+        <div class="flex flex-col gap-[18px] lg:gap-gallery">
+          <button data-lightbox data-full="img/Photo_451x601.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/601">
+            <img src="img/Photo_451x601.webp" alt="Zielone tarasy ze schodami" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+          <button data-lightbox data-full="img/Photo_451x452.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/452">
+            <img src="img/Photo_451x452.webp" alt="Basen z tarasem drewnianym" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+          <button data-lightbox data-full="img/Photo_451x338.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/338">
+            <img src="img/Photo_451x338.webp" alt="Staw z rybami koi" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+        </div>
+        <!-- column 2 -->
+        <div class="flex flex-col gap-[18px] lg:gap-gallery">
+          <button data-lightbox data-full="img/Photo_452x338.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:452/338">
+            <img src="img/Photo_452x338.webp" alt="Pergola pod nowoczesnym budynkiem" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+          <button data-lightbox data-full="img/Photo_452x452.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:452/452">
+            <img src="img/Photo_452x452.webp" alt="Kryty taras z roślinnością" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+          <button data-lightbox data-full="img/Photo_452x601.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:452/601">
+            <img src="img/Photo_452x601.webp" alt="Ścieżka wśród tropikalnej roślinności" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+        </div>
+        <!-- column 3 -->
+        <div class="flex flex-col gap-[18px] lg:gap-gallery">
+          <button data-lightbox data-full="img/Photo_451x451.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/451">
+            <img src="img/Photo_451x451.webp" alt="Łuk pnączy różanych nad ścieżką" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+          <button data-lightbox data-full="img/Photo_451x603.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/603">
+            <img src="img/Photo_451x603.webp" alt="Zadaszony taras z pnączami" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+          <button data-lightbox data-full="img/Photo_451x338.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/338">
+            <img src="img/Photo_451x338.webp" alt="Kamienna nawierzchnia geometryczna" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+            <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+            </span>
+          </button>
+        </div>
+
+        <!-- fade to the section's beige background, per design: linear transparent -> beige, from y=475 of 1475 -->
+        <div id="gallery-fade" class="pointer-events-none absolute inset-x-0 bottom-0 top-[32%] bg-gradient-to-b from-transparent to-beige transition-opacity duration-700 ease-out"></div>
+      </div>
+
+      <!-- extra batch revealed by "Rozwiń" -->
+      <div id="gallery-more" class="mt-16 hidden grid-cols-1 gap-[18px] px-6 sm:grid-cols-2 sm:px-[42px] lg:grid-cols-3 lg:gap-[42px] lg:px-0" aria-hidden="true">
+        <div class="flex flex-col gap-[18px] lg:gap-gallery">
+          <button data-lightbox data-full="img/Photo_452x601.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:452/601">
+            <img src="img/Photo_452x601.webp" alt="Ścieżka wśród tropikalnej roślinności" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+          </button>
+          <button data-lightbox data-full="img/Photo_452x452.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:452/452">
+            <img src="img/Photo_452x452.webp" alt="Kryty taras z roślinnością" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-[18px] lg:gap-gallery">
+          <button data-lightbox data-full="img/Photo_451x603.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/603">
+            <img src="img/Photo_451x603.webp" alt="Zadaszony taras z pnączami" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+          </button>
+          <button data-lightbox data-full="img/Photo_451x338.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/338">
+            <img src="img/Photo_451x338.webp" alt="Kamienna nawierzchnia geometryczna" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-[18px] lg:gap-gallery">
+          <button data-lightbox data-full="img/Photo_451x601.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/601">
+            <img src="img/Photo_451x601.webp" alt="Zielone tarasy ze schodami" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+          </button>
+          <button data-lightbox data-full="img/Photo_451x452.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/452">
+            <img src="img/Photo_451x452.webp" alt="Basen z tarasem drewnianym" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
+            <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="relative z-10 mt-16 flex justify-center">
+        <button id="load-more" class="btn-outline" aria-expanded="false" aria-controls="gallery-more">
+          <span data-label>Rozwiń</span>
+          <svg data-icon class="h-4 w-4 transition-transform duration-300" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3.5 9 8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ INSTAGRAM CTA ============ -->
+    <section id="kontakt" class="bg-cream px-6 py-16 md:px-[89px] lg:px-[200px]">
+      <div class="reveal flex flex-col items-start justify-between gap-8 rounded-2xl bg-green px-8 py-12 text-cream sm:flex-row sm:items-center sm:px-14">
+        <h3 class="font-display text-3xl font-normal leading-tight tracking-tight md:text-h3">
+          Zostańmy w kontakcie!<br>Znajdziesz nas na <em class="font-sans italic font-medium">Instagramie</em>.
+        </h3>
+        <div class="flex shrink-0 flex-col items-start gap-4 sm:items-end">
+          <p class="text-body-sm text-cream/80">Śledź nasze<br>najnowsze realizacje!</p>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn bg-cream text-green hover:bg-white hover:-translate-y-0.5">Instagram</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-ink px-6 pb-10 pt-16 text-cream md:px-[89px] lg:px-[200px]">
+    <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-center">
+      <span class="font-display text-lg font-medium">giard<span class="font-normal">design</span></span>
+      <div class="flex items-center gap-6">
+        <p class="text-body-sm text-cream/70">Daj znać, co możemy dla Ciebie zrobić!</p>
+        <a href="#kontakt" class="btn-fill">Skontaktuj się z nami</a>
+      </div>
+    </div>
+    <div class="my-10 h-px w-full bg-cream/15"></div>
+    <div class="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+      <nav class="flex flex-wrap gap-6 text-body-sm text-cream/80" aria-label="Stopka">
+        <a href="#kontakt" class="transition-colors hover:text-cream">Kontakt</a>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-cream">Instagram</a>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-cream">Facebook</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="transition-colors hover:text-cream">LinkedIn</a>
+      </nav>
+      <div class="flex flex-wrap gap-6 text-body-sm text-cream/80">
+        <a href="tel:000000000" class="transition-colors hover:text-cream">000-000-000</a>
+        <a href="mailto:giarddesign@kontakt.pl" class="transition-colors hover:text-cream">giarddesign@kontakt.pl</a>
+      </div>
+    </div>
+    <div class="mt-10 flex flex-col gap-3 text-body-sm text-cream/50 sm:flex-row sm:items-center sm:justify-between">
+      <p>Prawa zastrzeżone © 2022</p>
+      <p class="flex items-center gap-2">made by <img src="img/adRespect.jpg" alt="adRespect" class="h-6 w-auto rounded-sm"></p>
+    </div>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-ink/90 p-4 opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
+    <button id="lightbox-close" aria-label="Zamknij" class="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full text-cream transition-colors hover:bg-cream/10">
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+    <button id="lightbox-prev" aria-label="Poprzednie zdjęcie" class="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full text-cream transition-colors hover:bg-cream/10 sm:left-6">
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-[92vw] scale-95 rounded-lg object-contain opacity-0 shadow-2xl transition-all duration-300">
+    <button id="lightbox-next" aria-label="Następne zdjęcie" class="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full text-cream transition-colors hover:bg-cream/10 sm:right-6">
+      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
