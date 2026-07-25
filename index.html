@@ -10,6 +10,42 @@
 </head>
 <body class="bg-cream text-ink">
 
+  <!-- ============ IKONY ============
+       Sprite: kazda ikona zdefiniowana raz, uzywana przez <use href="#ico-...">.
+       viewBox siedzi na <symbol>, wiec w miejscu uzycia wystarczy sam rozmiar (h-* w-*),
+       a kolor dziedziczy sie przez currentColor z rodzica. -->
+  <svg class="hidden" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="ico-chevron" viewBox="0 0 12 12" fill="none">
+      <path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-search" viewBox="0 0 24 24" fill="none">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-zoom" viewBox="0 0 24 24" fill="none">
+      <path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-menu" viewBox="0 0 24 24" fill="none">
+      <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-close" viewBox="0 0 24 24" fill="none">
+      <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="ico-arrow-right" viewBox="0 0 16 16" fill="none">
+      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-arrow-down" viewBox="0 0 16 16" fill="none">
+      <path d="M8 3v10M3.5 9 8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-chevron-left" viewBox="0 0 24 24" fill="none">
+      <path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="ico-chevron-right" viewBox="0 0 24 24" fill="none">
+      <path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+  </svg>
+
   <!-- ============ NAV ============ -->
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 h-[72px] bg-white/95 backdrop-blur-sm shadow-[0_1px_0_rgba(17,17,17,0.06)]">
     <div class="flex h-full items-center justify-between px-6 md:px-[89px] lg:px-[200px]">
@@ -21,7 +57,7 @@
           <div class="group relative">
             <button id="oferta-toggle" class="nav-link flex items-center gap-1.5" aria-expanded="false" aria-controls="oferta-menu">
               Oferta
-              <svg id="oferta-chevron" class="h-3.5 w-3.5 transition-transform duration-300" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg id="oferta-chevron" class="h-3.5 w-3.5 transition-transform duration-300"><use href="#ico-chevron"/></svg>
             </button>
             <div id="oferta-menu"
                  class="invisible absolute left-1/2 top-[calc(100%+18px)] w-[280px] -translate-x-1/2 translate-y-2 rounded-2xl border border-black/5 bg-white p-2 opacity-0 shadow-2xl shadow-black/10 transition-all duration-250 ease-out"
@@ -50,15 +86,15 @@
           <div class="hidden items-center md:flex">
             <div id="search-wrap" class="flex items-center overflow-hidden rounded-pill border border-transparent transition-all duration-350 ease-out" style="width:40px;">
               <button id="search-toggle" aria-label="Szukaj" aria-expanded="false" class="grid h-10 w-10 shrink-0 place-items-center rounded-full transition-colors hover:bg-cream">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <svg class="h-5 w-5"><use href="#ico-search"/></svg>
               </button>
               <input id="search-input" type="text" placeholder="Czego szukasz?" class="w-0 border-none bg-transparent text-body-sm outline-none placeholder:text-ink/40" />
             </div>
           </div>
           <!-- mobile hamburger -->
           <button id="menu-toggle" class="grid h-10 w-10 place-items-center lg:hidden" aria-label="Otwórz menu" aria-expanded="false">
-            <svg id="menu-icon-open" class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <svg id="menu-icon-close" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg id="menu-icon-open" class="h-6 w-6"><use href="#ico-menu"/></svg>
+            <svg id="menu-icon-close" class="hidden h-6 w-6"><use href="#ico-close"/></svg>
           </button>
         </div>
       </div>
@@ -69,7 +105,7 @@
       <nav class="flex flex-col gap-1" aria-label="Menu mobilne">
         <button id="oferta-toggle-m" class="flex items-center justify-between py-3 text-left text-body" aria-expanded="false" aria-controls="oferta-menu-m">
           Oferta
-          <svg id="oferta-chevron-m" class="h-3.5 w-3.5 transition-transform duration-300" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 6 8l3.5-3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg id="oferta-chevron-m" class="h-3.5 w-3.5 transition-transform duration-300"><use href="#ico-chevron"/></svg>
         </button>
         <div id="oferta-menu-m" class="hidden flex-col gap-1 pl-4 pb-2">
           <a href="#oferta" class="py-2 text-body-sm text-ink/70">Projekty</a>
@@ -80,7 +116,7 @@
         <a href="#realizacje" class="border-t border-black/5 py-3 text-body">Realizacje</a>
         <a href="#kontakt" class="border-t border-black/5 py-3 text-body">Kontakt</a>
         <div class="mt-3 flex items-center gap-2 rounded-pill border border-black/10 px-4 py-2.5">
-          <svg class="h-4 w-4 shrink-0 text-ink/50" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg class="h-4 w-4 shrink-0 text-ink/50"><use href="#ico-search"/></svg>
           <input type="text" placeholder="Czego szukasz?" class="w-full border-none bg-transparent text-body-sm outline-none placeholder:text-ink/40" />
         </div>
       </nav>
@@ -104,7 +140,7 @@
             <a href="#kontakt" class="btn-fill">Skontaktuj się z nami</a>
             <a href="#realizacje" class="btn-outline">
               Zobacz nasze realizacje
-              <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3.5 9 8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="h-4 w-4"><use href="#ico-arrow-down"/></svg>
             </a>
           </div>
         </div>
@@ -119,10 +155,10 @@
           </div>
           <div class="absolute bottom-0 right-0 flex items-center gap-8 bg-cream px-6 py-6 sm:px-8">
             <button data-prev aria-label="Poprzednie zdjęcie" class="grid h-12 w-12 place-items-center rounded-full border border-ink/15 transition-colors hover:border-green hover:bg-green hover:text-cream">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="h-5 w-5"><use href="#ico-chevron-left"/></svg>
             </button>
             <button data-next aria-label="Następne zdjęcie" class="grid h-12 w-12 place-items-center rounded-full border border-ink/15 transition-colors hover:border-green hover:bg-green hover:text-cream">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg class="h-5 w-5"><use href="#ico-chevron-right"/></svg>
             </button>
           </div>
         </div>
@@ -149,7 +185,7 @@
           <h3 class="mt-6 font-display text-h4 font-medium tracking-tight">Projekty</h3>
           <p class="mt-3 text-body-sm text-ink/70">Zaprojektujemy Twój ogród w nowoczesnym stylu i z najlepszym wykorzystaniem istniejącej przestrzeni.</p>
           <span class="card-link mt-8">Dowiedz się więcej
-            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="h-4 w-4"><use href="#ico-arrow-right"/></svg>
           </span>
         </a>
         <a href="#kontakt" class="reveal group flex flex-col rounded-card bg-white px-10 py-12 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10" style="transition-delay:80ms">
@@ -159,7 +195,7 @@
           <h3 class="mt-6 font-display text-h4 font-medium tracking-tight">Wizualizacje</h3>
           <p class="mt-3 text-body-sm text-ink/70">Przedstawimy Ci projekty koncepcyjne w postaci wirtualnego spaceru animowanego w technologii 3D.</p>
           <span class="card-link mt-8">Dowiedz się więcej
-            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="h-4 w-4"><use href="#ico-arrow-right"/></svg>
           </span>
         </a>
         <a href="#realizacje" class="reveal group flex flex-col rounded-card bg-white px-10 py-12 transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/10 sm:col-span-2 lg:col-span-1" style="transition-delay:160ms">
@@ -169,7 +205,7 @@
           <h3 class="mt-6 font-display text-h4 font-medium tracking-tight">Realizacje</h3>
           <p class="mt-3 text-body-sm text-ink/70">Zrealizujemy Twoje marzenie przy użyciu najnowszych rozwiązań i zaawansowanych technologii.</p>
           <span class="card-link mt-8">Zobacz nasze realizacje
-            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="h-4 w-4"><use href="#ico-arrow-right"/></svg>
           </span>
         </a>
       </div>
@@ -191,7 +227,7 @@
           </p>
           <a href="#kontakt" class="btn-outline-light mt-9 w-fit">
             Poznaj nas bliżej
-            <svg class="h-4 w-4" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg class="h-4 w-4"><use href="#ico-arrow-right"/></svg>
           </a>
         </div>
       </div>
@@ -213,21 +249,21 @@
             <img src="img/Photo_451x601.webp" alt="Zielone tarasy ze schodami" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
           <button data-lightbox data-full="img/Photo_451x452.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/452">
             <img src="img/Photo_451x452.webp" alt="Basen z tarasem drewnianym" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
           <button data-lightbox data-full="img/Photo_451x338.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/338">
             <img src="img/Photo_451x338.webp" alt="Staw z rybami koi" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
         </div>
@@ -237,21 +273,21 @@
             <img src="img/Photo_452x338.webp" alt="Pergola pod nowoczesnym budynkiem" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
           <button data-lightbox data-full="img/Photo_452x452.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:452/452">
             <img src="img/Photo_452x452.webp" alt="Kryty taras z roślinnością" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
           <button data-lightbox data-full="img/Photo_452x601.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:452/601">
             <img src="img/Photo_452x601.webp" alt="Ścieżka wśród tropikalnej roślinności" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
         </div>
@@ -261,21 +297,21 @@
             <img src="img/Photo_451x451.webp" alt="Łuk pnączy różanych nad ścieżką" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
           <button data-lightbox data-full="img/Photo_451x603.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/603">
             <img src="img/Photo_451x603.webp" alt="Zadaszony taras z pnączami" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
           <button data-lightbox data-full="img/Photo_451x338.webp" class="reveal group relative overflow-hidden rounded-lg" style="aspect-ratio:451/338">
             <img src="img/Photo_451x338.webp" alt="Kamienna nawierzchnia geometryczna" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110">
             <span class="absolute inset-0 bg-white/10 transition-opacity duration-300 group-hover:bg-ink/20"></span>
             <span class="absolute inset-0 grid place-items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5" viewBox="0 0 24 24" fill="none"><path d="M10 4a6 6 0 100 12 6 6 0 000-12zM21 21l-5.2-5.2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M10 7v6M7 10h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+              <span class="grid h-12 w-12 place-items-center rounded-full bg-cream/90 text-ink"><svg class="h-5 w-5"><use href="#ico-zoom"/></svg></span>
             </span>
           </button>
         </div>
@@ -321,7 +357,7 @@
       <div class="relative z-10 mt-16 flex justify-center">
         <button id="load-more" class="btn-outline" aria-expanded="false" aria-controls="gallery-more">
           <span data-label>Rozwiń</span>
-          <svg data-icon class="h-4 w-4 transition-transform duration-300" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3.5 9 8 13.5 12.5 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg data-icon class="h-4 w-4 transition-transform duration-300"><use href="#ico-arrow-down"/></svg>
         </button>
       </div>
     </section>
@@ -371,14 +407,14 @@
   <!-- ============ LIGHTBOX ============ -->
   <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-ink/90 p-4 opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia">
     <button id="lightbox-close" aria-label="Zamknij" class="absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full text-cream transition-colors hover:bg-cream/10">
-      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <svg class="h-6 w-6"><use href="#ico-close"/></svg>
     </button>
     <button id="lightbox-prev" aria-label="Poprzednie zdjęcie" class="absolute left-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full text-cream transition-colors hover:bg-cream/10 sm:left-6">
-      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="h-6 w-6"><use href="#ico-chevron-left"/></svg>
     </button>
     <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-[92vw] scale-95 rounded-lg object-contain opacity-0 shadow-2xl transition-all duration-300">
     <button id="lightbox-next" aria-label="Następne zdjęcie" class="absolute right-3 top-1/2 grid h-12 w-12 -translate-y-1/2 place-items-center rounded-full text-cream transition-colors hover:bg-cream/10 sm:right-6">
-      <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg class="h-6 w-6"><use href="#ico-chevron-right"/></svg>
     </button>
   </div>
 

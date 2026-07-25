@@ -34,7 +34,13 @@ design-tokens.md     — źródło prawdy dla kolorów, typografii i siatki (dos
 ```
 
 Sekcje w `index.html` są oddzielone komentarzami (`<!-- ====== HERO ====== -->` itd.) i idą
-w kolejności: nawigacja, hero, oferta, o firmie, realizacje (galeria), CTA, stopka, lightbox.
+w kolejności: sprite z ikonami, nawigacja, hero, oferta, o firmie, realizacje (galeria), CTA,
+stopka, lightbox.
+
+Ikony są zebrane w jednym sprite'cie SVG na początku `<body>` — każdy kształt zdefiniowany raz
+jako `<symbol id="ico-...">`, a w treści strony używany przez `<svg class="h-5 w-5"><use
+href="#ico-zoom"/></svg>`. Rozmiar ustawia się klasami Tailwind, kolor dziedziczy się przez
+`currentColor`. Nową ikonę dodaje się jako kolejny `<symbol>` w sprite'cie.
 
 W `app.js` każdy blok funkcjonalny ma własny komentarz nagłówkowy: scroll reveal, cień nagłówka,
 dropdown „Oferta" (desktop i mobile), wysuwane wyszukiwanie, menu mobilne, karuzela w hero,
